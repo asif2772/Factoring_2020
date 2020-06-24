@@ -1,0 +1,780 @@
+/*
+	@name web_1920___1
+*/
+/* Only edit this if you know what you are doing! */
+body { margin: 0px; padding: 0px; font-family:"Arial"; /*overflow-x:hidden;*/ }
+
+/* Only edit this if you know what you are doing! */
+img { position: absolute; display: block; margin: 0px; border: none; padding: 0px; }
+
+/* Only edit this if you know what you are doing! */
+div { position: absolute; }
+
+#content-container { display: table; position: relative; width: 1500px; height: 1080px; overflow: hidden; margin: 0 auto;}
+
+#_bg__web_1920___1 {
+    top: 0px;
+    left: 0px;
+    width: 1500px;
+    height: 1080px;
+    background:rgba(255,255,255,255);
+}
+
+
+#bg {
+    top: 0px;
+    left: 13px;
+    width: 1500px;
+    height: 1080px;
+}
+
+
+#screen_shot_2019_06_21_at_10_08_26 {
+    display:none;
+    top: -2px;
+    left: 32px;
+    width: 1522px;
+    height: 496px;
+}
+
+#footer {
+    top: 1034px;
+    left: 13px;
+    width: 1500px;
+    height: 46px;
+}
+
+#rectangle_1 {
+    top: 0px;
+    left: 0px;
+    width: 1500px;
+    height: 46px;
+    background:rgba(4,125,184,255);
+}
+
+#group_3 {
+    top: 16px;
+    left: 1069px;
+    width: 266.70007324219px;
+    height: 13.699951171875px;
+}
+#group_1 {
+    top: 0px;
+    left: 0px;
+    width: 115.5px;
+    height: 13.699951171875px;
+}
+
+#path_1 {
+    top: 0px;
+    left: 0px;
+    width: 7.5999755859375px;
+    height: 13.300048828125px;
+}
+
+
+#path_2 {
+    top: 0px;
+    left: 14px;
+    width: 1.5px;
+    height: 13.200073242188px;
+}
+
+
+#path_3 {
+    top: 0px;
+    left: 22px;
+    width: 8.9000244140625px;
+    height: 13.200073242188px;
+}
+
+
+#path_4 {
+    top: 0px;
+    left: 36px;
+    width: 10.60009765625px;
+    height: 13.099975585938px;
+}
+
+
+#path_5 {
+    top: 0px;
+    left: 51px;
+    width: 8.89990234375px;
+    height: 13.200073242188px;
+}
+
+
+#path_6 {
+    top: 0px;
+    left: 66px;
+    width: 9.9000244140625px;
+    height: 13.599975585938px;
+}
+
+
+#path_7 {
+    top: 0px;
+    left: 82px;
+    width: 1.5px;
+    height: 13.200073242188px;
+}
+
+
+#path_8 {
+    top: 0px;
+    left: 90px;
+    width: 8.9000244140625px;
+    height: 13.200073242188px;
+}
+
+
+#path_9 {
+    top: 0px;
+    left: 105px;
+    width: 10.599975585938px;
+    height: 13.699951171875px;
+}
+
+#group_2 {
+    top: 0px;
+    left: 129px;
+    width: 138.00012207031px;
+    height: 13.699951171875px;
+}
+
+#path_10 {
+    top: 0px;
+    left: 0px;
+    width: 13.800048828125px;
+    height: 13.200073242188px;
+}
+
+
+#path_11 {
+    top: 0px;
+    left: 19px;
+    width: 13.39990234375px;
+    height: 13.200073242188px;
+}
+
+
+#path_12 {
+    top: 0px;
+    left: 39px;
+    width: 11.599975585938px;
+    height: 13.10009765625px;
+}
+
+
+#path_13 {
+    top: 0px;
+    left: 57px;
+    width: 2.7999267578125px;
+    height: 13.200073242188px;
+}
+
+
+#path_14 {
+    top: 0px;
+    left: 65px;
+    width: 11px;
+    height: 13.200073242188px;
+}
+
+
+#path_15 {
+    top: 0px;
+    left: 82px;
+    width: 2.7999267578125px;
+    height: 13.200073242188px;
+}
+
+
+#path_16 {
+    top: 0px;
+    left: 90px;
+    width: 13.400024414062px;
+    height: 13.599975585938px;
+}
+
+
+#path_17 {
+    top: 0px;
+    left: 110px;
+    width: 10.900024414062px;
+    height: 13.200073242188px;
+}
+
+
+#path_18 {
+    top: 0px;
+    left: 127px;
+    width: 11.200073242188px;
+    height: 13.599975585938px;
+}
+
+
+#__p__welkom___bij_nl_credit_services_ {
+    top: 76px;
+    left: 563.0625px;
+    width: 400px;
+    height: 151px;
+    overflow: hidden;
+    font-family: Open Sans;
+    font-size: 50px;
+    text-align: left;
+    line-height: 25px;
+    color:#ffffff;
+}
+
+
+#rectangle_2 {
+    top: 195px;
+    left: 563px;
+    width: 398px;
+    height: 46px;
+    border: 1px solid #b7b7b7;
+    background:rgba(255,255,255,255);
+}
+
+
+#rectangle_3 {
+    top: 242px;
+    left: 563px;
+    width: 398px;
+    height: 46px;
+    border: 1px solid #b7b7b7;
+    background:rgba(255,255,255,255);
+}
+
+#_001_lock {
+    top: 285px;
+    left: 931.0625px;
+    width: 16.0234375px;
+    height: 21.364593505859px;
+}
+#group_4 {
+    top: 0px;
+    left: 0px;
+    width: 16.0234375px;
+    height: 21.364593505859px;
+}
+
+#path_38 {
+    top: 0px;
+    left: 0px;
+    width: 16.0234375px;
+    height: 21.364593505859px;
+}
+
+#_002_envelope {
+    top: 235.000061px;
+    left: 930.0625px;
+    width: 17.782531738281px;
+    height: 13.971862792969px;
+}
+#group_21 {
+    top: 0px;
+    left: 0px;
+    width: 17.782531738281px;
+    height: 13.971862792969px;
+}
+
+#path_52 {
+    top: 0px;
+    left: 0px;
+    width: 17.782470703125px;
+    height: 8.8908233642578px;
+}
+
+
+#path_53 {
+    top: 5px;
+    left: 0px;
+    width: 17.782531738281px;
+    height: 9.4667816162109px;
+}
+
+
+.rectangle_4 {
+    width: 170px;
+    height: 40px;
+    background:rgba(253,130,28,255);
+    font-family: Open Sans;
+    font-size: 15px;
+    text-align: center;
+    line-height: 15px;
+    color:#ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+
+#__p__aanmelden {
+    top: 325px;
+    left: 811.0625px;
+    width: 149px;
+    height: 28.5px;
+    overflow: hidden;
+    font-family: Open Sans;
+    font-size: 15px;
+    text-align: center;
+    line-height: 15px;
+    color:#ffffff;
+}
+
+#logout {
+    top: 362.314697px;
+    left: 816.16247558594px;
+    width: 17.302368164062px;
+    height: 15.064086914062px;
+}
+#group_20 {
+    top: 0px;
+    left: 0px;
+    width: 17.302368164062px;
+    height: 15.064086914062px;
+}
+#group_19 {
+    top: 0px;
+    left: 0px;
+    width: 17.302368164062px;
+    height: 15.064086914062px;
+}
+
+#path_51 {
+    top: 0px;
+    left: 0px;
+    width: 17.302368164062px;
+    height: 15.064086914062px;
+}
+
+
+#__p__ik_ben_mijn_wachtwoord_vergeten {
+    top: 364px;
+    left: 563.0625px;
+    width: 230px;
+    height: 26px;
+    overflow: hidden;
+    font-family: Open Sans;
+    font-size: 12px;
+    text-decoration: underline;
+    text-align: left;
+    line-height: 12px;
+    color:#ffffff;
+}
+
+
+#__p__e_mailadres {
+    top: 205px;
+    left: 581.0625px;
+    width: 308px;
+    height: 38px;
+    overflow: hidden;
+    font-family: Open Sans;
+    font-size: 14px;
+    text-align: left;
+    line-height: 14px;
+    color:#b7b7b7;
+}
+
+
+#__p__wachtwoord {
+    top: 252px;
+    left: 581.0625px;
+    width: 308px;
+    height: 38px;
+    overflow: hidden;
+    font-family: Open Sans;
+    font-size: 14px;
+    text-align: left;
+    line-height: 14px;
+    color:#b7b7b7;
+}
+
+#group_7 {
+    top: 29.999979019165px;
+    left: 178px;
+    width: 162.19528198242px;
+    height: 70.740249633789px;
+}
+#group_4_ek1 {
+    top: 0px;
+    left: 64px;
+    width: 98.219039916992px;
+    height: 41.781845092773px;
+}
+
+#path_19 {
+    top: 1px;
+    left: 1px;
+    width: 15.571319580078px;
+    height: 17.685062408447px;
+}
+
+
+#path_20 {
+    top: 1px;
+    left: 20px;
+    width: 10.357360839844px;
+    height: 17.614604949951px;
+}
+
+
+#path_21 {
+    top: 1px;
+    left: 31px;
+    width: 14.725799560547px;
+    height: 18.530567169189px;
+}
+
+
+#path_22 {
+    top: 7px;
+    left: 48px;
+    width: 7.891357421875px;
+    height: 12.471138000488px;
+}
+
+
+#path_23 {
+    top: 7px;
+    left: 56px;
+    width: 11.484710693359px;
+    height: 12.682518005371px;
+}
+
+
+#path_24 {
+    top: 0px;
+    left: 69px;
+    width: 12.189300537109px;
+    height: 19.1646900177px;
+}
+
+
+#path_25 {
+    top: 1px;
+    left: 84px;
+    width: 4.0161437988281px;
+    height: 18.037359237671px;
+}
+
+
+#path_26 {
+    top: 3px;
+    left: 89px;
+    width: 8.6663818359375px;
+    height: 15.923603057861px;
+}
+
+
+#path_27 {
+    top: 22px;
+    left: -0px;
+    width: 12.893890380859px;
+    height: 20.221572875977px;
+}
+
+
+#path_28 {
+    top: 28px;
+    left: 15px;
+    width: 12.541595458984px;
+    height: 13.880310058594px;
+}
+
+
+#path_29 {
+    top: 28px;
+    left: 30px;
+    width: 8.6663818359375px;
+    height: 13.528011322021px;
+}
+
+
+#path_30 {
+    top: 28px;
+    left: 40px;
+    width: 13.950775146484px;
+    height: 13.24617767334px;
+}
+
+
+#path_31 {
+    top: 21px;
+    left: 55px;
+    width: 4.3684387207031px;
+    height: 19.798816680908px;
+}
+
+
+#path_32 {
+    top: 28px;
+    left: 61px;
+    width: 11.202880859375px;
+    height: 13.880306243896px;
+}
+
+
+#path_33 {
+    top: 27px;
+    left: 74px;
+    width: 12.541625976562px;
+    height: 13.880306243896px;
+}
+
+
+#path_34 {
+    top: 27px;
+    left: 88px;
+    width: 10.498291015625px;
+    height: 13.95076751709px;
+}
+
+#group_5 {
+    top: 2px;
+    left: 0px;
+    width: 55.380310058594px;
+    height: 69.049247741699px;
+}
+
+#path_35 {
+    top: 42px;
+    left: 47px;
+    width: 8.8777465820312px;
+    height: 11.414260864258px;
+}
+
+
+#path_36 {
+    top: 0px;
+    left: 38px;
+    width: 16.98046875px;
+    height: 10.216472625732px;
+}
+
+
+#path_37 {
+    top: 0px;
+    left: 0px;
+    width: 55.380310058594px;
+    height: 69.049255371094px;
+}
+
+#group_6 {
+    top: 47px;
+    left: 65px;
+    width: 96.809906005859px;
+    height: 5.4957580566406px;
+}
+
+#path_38_ek1 {
+    top: 0px;
+    left: 0px;
+    width: 3.0297088623047px;
+    height: 5.2843780517578px;
+}
+
+
+#path_39 {
+    top: 0px;
+    left: 5px;
+    width: 0.56365966796875px;
+    height: 5.2139205932617px;
+}
+
+
+#path_40 {
+    top: 0px;
+    left: 9px;
+    width: 3.5229187011719px;
+    height: 5.2139205932617px;
+}
+
+
+#path_41 {
+    top: 0px;
+    left: 14px;
+    width: 4.2275085449219px;
+    height: 5.2139205932617px;
+}
+
+
+#path_42 {
+    top: 0px;
+    left: 20px;
+    width: 3.52294921875px;
+    height: 5.2139205932617px;
+}
+
+
+#path_43 {
+    top: 0px;
+    left: 26px;
+    width: 3.9456787109375px;
+    height: 5.3548431396484px;
+}
+
+
+#path_44 {
+    top: 0px;
+    left: 33px;
+    width: 0.56365966796875px;
+    height: 5.2139205932617px;
+}
+
+
+#path_45 {
+    top: 0px;
+    left: 36px;
+    width: 3.5229187011719px;
+    height: 5.2139205932617px;
+}
+
+
+#path_46 {
+    top: 0px;
+    left: 42px;
+    width: 4.2275085449219px;
+    height: 5.2843856811523px;
+}
+
+
+#path_47 {
+    top: 0px;
+    left: 51px;
+    width: 4.2275085449219px;
+    height: 5.2139205932617px;
+}
+
+
+#path_48 {
+    top: 0px;
+    left: 57px;
+    width: 4.2275085449219px;
+    height: 5.2139205932617px;
+}
+
+
+#path_49 {
+    top: 0px;
+    left: 64px;
+    width: 3.4524536132812px;
+    height: 5.2139205932617px;
+}
+
+
+#path_50 {
+    top: 0px;
+    left: 69px;
+    width: 0.56369018554688px;
+    height: 5.2139205932617px;
+}
+
+
+#path_51_ek1 {
+    top: 0px;
+    left: 72px;
+    width: 3.5934143066406px;
+    height: 5.2139205932617px;
+}
+
+
+#path_52_ek1 {
+    top: 0px;
+    left: 78px;
+    width: 0.56365966796875px;
+    height: 5.2139205932617px;
+}
+
+
+#path_53_ek1 {
+    top: 0px;
+    left: 81px;
+    width: 4.2979431152344px;
+    height: 5.42529296875px;
+}
+
+
+#path_54 {
+    top: 0px;
+    left: 88px;
+    width: 3.52294921875px;
+    height: 5.2139205932617px;
+}
+
+
+#path_55 {
+    top: 0px;
+    left: 93px;
+    width: 3.3115844726562px;
+    height: 5.4957580566406px;
+}
+
+
+
+/* Add your custom CSS here */
+
+::placeholder {
+    font-family: Open Sans;
+    font-size: 14px;
+    color:#b7b7b7;
+
+}
+
+.langGroup {
+    top: 29.999979019165px;
+    left: 1230px;
+    width: 100px;
+}
+.loginInputPlace {
+    width: 386px;
+    height: 46px;
+    padding-left: 12px;
+    border: none;
+    outline: none;
+}
+.cancelBtn {
+    background: none;
+    border: 1px solid white;
+    position: relative;
+    color: white;
+
+    width: 110px;
+    height: 40px;
+    font-family: Open Sans;
+    font-size: 15px;
+    text-align: center;
+    line-height: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+}
+.top78{
+    top: 78px;
+}
+
+.selectParent {
+    top: 29.999979019165px;
+    left: 1230px;
+    width: 80px;
+    overflow: hidden;
+}
+
+.selectParent  select {
+    color: white;
+    text-indent: 1px;
+    text-overflow: '';
+    width: 50px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 2px 2px 2px 2px;
+    border: none;
+    background: url("financial/line_3_ek1.png") 25px center no-repeat, url("financial/line_4_ek1.png") 30px center no-repeat;
+}
