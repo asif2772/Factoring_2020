@@ -1,4 +1,4 @@
-<%@ page import="bv.CoreParamsHelperTagLib;java.text.SimpleDateFormat;" %>
+<%@ page import="factoring.CoreParamsHelperTagLib; java.text.SimpleDateFormat;" %>
 <% if (executeMessage) { %>
 <div id="msgdiv" style="text-align: center;height:40px;margin-top:15px">
     <b style="font-size:17px;color:${executeMessageColor};"><g:message code="${executeMessageCode}" default="${executeMessage}"/></b>

@@ -1,4 +1,4 @@
-<%@ page import="bv.CoreParamsHelperTagLib;java.text.SimpleDateFormat;" %>
+<%@ page import="factoring.CoreParamsHelperTagLib; java.text.SimpleDateFormat;" %>
 
     <div id="tableHeadForQuickEntry" class="financeTranTablHead">
         <table class="createReceipt createReceiptFinanceHead" width="100%" style="border: 1px solid #fdfcfc;">

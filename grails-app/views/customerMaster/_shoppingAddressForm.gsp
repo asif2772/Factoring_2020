@@ -1,4 +1,4 @@
-<%@ page import="bv.CoreParamsHelperTagLib; bv.CustomerShipmentAddress" %>
+<%@ page import="factoring.CoreParamsHelperTagLib; factoring.CustomerShipmentAddress;" %>
 
 <div class="fieldcontain ${hasErrors(bean: customerShipmentAddressInstance, field: 'shipContactName', 'error')} required">
     <label for="shipContactName">

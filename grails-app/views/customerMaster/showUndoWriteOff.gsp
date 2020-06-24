@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ page import="bv.CoreParamsHelperTagLib;"%>
+<%@ page import="factoring.CoreParamsHelperTagLib;"%>
 <% def contextPath = request.getServletContext().getContextPath() %>
 <html>
 

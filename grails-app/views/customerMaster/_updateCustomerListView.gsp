@@ -1,4 +1,4 @@
-<%@ page import="bv.CoreParamsHelperTagLib;" %>
+<%@ page import="factoring.CoreParamsHelperTagLib;" %>
 <!doctype html>
 <html>
 <head>

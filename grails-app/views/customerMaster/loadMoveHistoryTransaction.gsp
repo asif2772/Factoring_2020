@@ -1,4 +1,4 @@
-<%@ page import="bv.CoreParamsHelperTagLib;java.text.SimpleDateFormat;" %>
+<%@ page import="factoring.CoreParamsHelperTagLib; java.text.SimpleDateFormat;" %>
 <% def contextPath = request.getServletContext().getContextPath()%>
 <script type="text/javascript">
 

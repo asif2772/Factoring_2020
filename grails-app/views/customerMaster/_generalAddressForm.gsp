@@ -1,4 +1,4 @@
-<%@ page import="bv.CoreParamsHelperTagLib; bv.CustomerGeneralAddress" %>
+<%@ page import="factoring.CoreParamsHelperTagLib; factoring.CustomerGeneralAddress;" %>
 
 <div class="main-container">
 
