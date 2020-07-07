@@ -1,4 +1,4 @@
-<%@ page import="factoring.CoreParamsHelperTagLib; java.text.SimpleDateFormat;" %>
+<%@ page import="factoring.CoreParamsHelperTagLib; java.text.SimpleDateFormat" %>
 <% def contextPath = request.getServletContext().getContextPath()%>
 <script type="text/javascript">
     function isWriteOffClicked(){
@@ -56,12 +56,12 @@
 
 </script>
 
-<g:formRemote name="writeOffForm" url="[controller:'customerMaster',action:'writeOffInvoicePaymentCustomer']" >
+<g:form name="writeOffForm" url="[controller:'customerMaster',action:'writeOffInvoicePaymentCustomer']" >
     <%
         def rowNo = 0;
     %>
     <p class="ashBtnDiv" style="float: right; margin-right: -99px; padding-right: 120px; margin-bottom: 15px;">
-        <g:submitToRemote class="ashBtn" style="line-height: 22px;" onerror="redirectList()" onSuccess="redirectMoveList()" url="[controller:'customerMaster',action:'moveHistory']" value="Move History"/>
+        <g:actionSubmit class="ashBtn" style="line-height: 22px;" onerror="redirectList()" onSuccess="redirectMoveList()" url="[controller:'customerMaster',action:'moveHistory']" value="Move History"/>
     </p>
     <div class="InvoiceAmountTabl">
 
@@ -161,7 +161,7 @@
                 <div class="fieldContainerRightOffDiv writeOff2Button" style="padding-right: 0px;">
                     <div class="fieldContainer updateLinkBtn ashBtnDiv writeOffBtn" style="margin: 25px 10px 0px;">
                         <img id="writeOffLoader" style="display: none;margin-left: -22px;" src="${assetPath(src:'spinner.gif')}" alt="${message(code:'spinner.alt.Loading',default:'Loading...')}" />
-                        <g:submitToRemote before="if(isWriteOffClicked()){" after="}" style="width:100px;" class="ashBtn" action="writeOffInvoicePaymentCustomer" update="tabpage_6" value="${message(code: 'customerMaster.financeTranTab.writeOff.label', default: 'Write Off')}"/>
+                        <g:actionSubmit before="if(isWriteOffClicked()){" after="}" style="width:100px;" class="ashBtn" action="writeOffInvoicePaymentCustomer" update="tabpage_6" value="${message(code: 'customerMaster.financeTranTab.writeOff.label', default: 'Write Off')}"/>
                         <g:link class="ashBtn" style="line-height: 22px;display:inline-block;position: relative;top: 1px;" action="showUndoWriteOff"  id="${customerMasterInstance?.id?customerMasterInstance?.id:cusId}" ><g:message code="customerMaster.undo.writeoff.label" default="Undo Write Off" /></g:link>
                         <div class="" style="padding-top: 10px; padding-bottom: 10px;width: 262px;">
                             <input type="text" id="writeOffAmount" name="writeOffAmount" placeholder="0.00">
@@ -189,7 +189,7 @@
     <g:hiddenField name="customerPrefix" value="${customerPrefix?customerPrefix:cusPrefix}" />
     <g:hiddenField name="customerCode" value="${customerMasterInstance?.customer_code?customerMasterInstance?.customer_code:cusCode}" />
     <g:hiddenField name="customerName" value="${customerMasterInstance?.customer_name?customerMasterInstance?.customer_name:cusName}" />
-</g:formRemote>
+</g:form>
 
 
 %{--2nd Table--}%

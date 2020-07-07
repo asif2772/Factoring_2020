@@ -43,7 +43,20 @@
                 <label for="vat">
                     <g:message code="customerMaster.vat.label" default="Vat"/><b>:</b>
                 </label>
-                <%="${new CoreParamsHelperTagLib().getVatCategory('vat', (customerMasterInstance?.vat) ? (Integer.parseInt(customerMasterInstance?.vat)) : '0')}"%>
+                <%
+                    def vatCategory = new CoreParamsHelperTagLib().getVatCategory('vat', (customerMasterInstance?.vat) ? (Integer.parseInt(customerMasterInstance?.vat)) : '0')
+                %>
+                <select class="styled sidebr01" name="vat" id="vat" tabindex="8">
+                %{--                    <option value="">- no select -</option>--}%
+                    <g:each in="${vatCategory}" var="vat">
+                        <g:if test="${vatCategory.size() > 0}">
+                            <option value="${vat.id}">${vat.category} (${vat.rate}%)</option>
+                        </g:if>
+                        <g:else>
+                            <option value="0">"No vat.."</option>
+                        </g:else>
+                    </g:each>
+                </select>
             </div>
         </div>
     </div>  <!--fieldContainerLeft-->
@@ -66,7 +79,22 @@
                     <g:message code="customerMaster.paymentTerm.label" default="Payment Term"/><b>:</b>
                     %{--<span class="required-indicator">*</span>--}%
                 </label>
-                <%= "${new CoreParamsHelperTagLib().paymentTermDropdownList("paymentTerm.id", customerMasterInstance?.payment_term_id)}"%>
+
+                <%
+                        def paymentTerm = new CoreParamsHelperTagLib().paymentTermDropdownList("paymentTerm.id", customerMasterInstance?.payment_term_id)
+                %>
+
+                <select class="styled sidebr01" name="paymentTerm" id="paymentTerm.id">
+                %{-- <option value="">- no select -</option>--}%
+                    <g:each in="${paymentTerm}" var="terms">
+                        <g:if test="${paymentTerm.size() > 0}">
+                            <option value="${terms.id}">${terms.terms}</option>
+                        </g:if>
+                        <g:else>
+                            <option value="0">"No terms.."</option>
+                        </g:else>
+                    </g:each>
+                </select>
             </div>
         </div>
     </div>  <!--fieldContainerRight-->
@@ -142,7 +170,28 @@
                                 <label for="salutaion">
                                     <g:message code="####customerMaster.firstName.label" default="Salutaion"/><b>:</b>
                                 </label>
-                                <%="${new CoreParamsHelperTagLib().CoreParamsDropDown('GENDER', 'gender', "${customerMasterInstance?.gender}")}"%>
+
+                                <%
+                                    def genderSel = new CoreParamsHelperTagLib().CoreParamsDropDown('GENDER', 'gender', "${customerMasterInstance?.gender}")
+                                %>
+
+                                <select class="styled sidebr01" name="gender" id="gender">
+                                %{-- <option value="">- no select -</option>--}%
+                                    <g:each in="${genderSel}" var="gen">
+                                        <g:if test="${genderSel.size() > 0}">
+                                            <g:if test="${gen.inSelected}">
+                                                <option selected value="${gen.value}">${gen.index}</option>
+                                            </g:if>
+                                            <g:else>
+                                                <option value="${gen.value}">${gen.index}</option>
+                                            </g:else>
+                                        </g:if>
+                                        <g:else>
+                                            <option value="0">"No items.."</option>
+                                        </g:else>
+                                    </g:each>
+                                </select>
+
                             </div>
                         </div>
 
@@ -208,7 +257,27 @@
                                 <g:message code="customerMaster.status.label" default="Status"/><b>:</b>
                                 %{--<span class="required-indicator">*</span>--}%
                             </label>
-                            <%= "${new CoreParamsHelperTagLib().StatusDropDown("status", customerMasterInstance?.status,null)}"%>
+
+                            <%
+                                    def statusOptn = new CoreParamsHelperTagLib().StatusDropDown("status", customerMasterInstance?.status,null)
+                            %>
+
+                            <select class="styled sidebr01" name="status" id="status">
+                            %{-- <option value="">- no select -</option>--}%
+                                <g:each in="${statusOptn}" var="ststus">
+                                    <g:if test="${statusOptn.size() > 0}">
+                                        <g:if test="${ststus.inSelected}">
+                                            <option selected value="${ststus.value}">${ststus.index}</option>
+                                        </g:if>
+                                        <g:else>
+                                            <option value="${ststus.value}">${ststus.index}</option>
+                                        </g:else>
+                                    </g:if>
+                                    <g:else>
+                                        <option value="0">"No items.."</option>
+                                    </g:else>
+                                </g:each>
+                            </select>
                         </div>
                     </div>
                 </div>

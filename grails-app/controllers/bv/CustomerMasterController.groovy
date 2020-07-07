@@ -962,6 +962,7 @@ class CustomerMasterController {
             params.customerType = "cn"
             params.defaultGlAccount = "8000"
 //              println ""+params.companyName
+            def paymentTermId =  params.paymentTerm
             Map updatededValue = [
                     cham_of_commerce  : "${params.chamOfCommerce}",
                     comments          : "${params.comments}",
@@ -970,7 +971,7 @@ class CustomerMasterController {
                     first_name        : "${params.firstName}",
                     last_name         : "${params.lastName}",
                     middle_name       : "${params.middleName}",
-                    payment_term_id   : "${params.paymentTerm.id}",
+                    payment_term_id   : paymentTermId,
                     customer_name     : "${params.customerName}",
                     vat               : "${params.vat}",
                     customer_type     : "${params.customerType}",
@@ -1028,23 +1029,7 @@ class CustomerMasterController {
             params.status = 1
             params.customerType = "cn"
             params.defaultGlAccount = "8000"
-
-            def mapRe = ["cham_of_commerce"  : "",
-                         "comments" : "",
-                         "customer_name"     : "${params.customerName}",
-                         "default_gl_account": "${params.defaultGlAccount}",
-                         "email"             : "",
-                         "first_name"        : "",
-                         "last_name"         : "",
-                         "middle_name"       : "",
-                         "vat"               : "${params.vat}",
-                      "customer_type"     : "${params.customerType}",
-                      "status"            : "${params.status}",
-                      "gender"            : "${params.gender}",
-                      "credit_status"     : "${params.creditStatus}",
-                      "credit_limit"      : "${params.creditLimit}",
-                      "customer_code"     : "${params.customerCode}",
-                         "payment_term_id"   : "${params.paymentTerm.id}"]
+            def paymentTermId =  params.paymentTerm
 
             def insertedValue = [
                     "cham_of_commerce"  : "",
@@ -1055,7 +1040,7 @@ class CustomerMasterController {
                     "first_name"        : "",
                     "last_name"         : "",
                     "middle_name"       : "",
-                    "payment_term_id"   : "${params.paymentTerm.id}",
+                    "payment_term_id"   : paymentTermId,
                     "vat"               : "${params.vat}",
                     "customer_type"     : "${params.customerType}",
                     "status"            : "${params.status}",

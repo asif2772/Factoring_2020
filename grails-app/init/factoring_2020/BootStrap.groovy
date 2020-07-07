@@ -29,7 +29,7 @@ class BootStrap {
 //        this.bankRelatedData();
 //        this.insertChartClassType();
 
-        initService.tempUserData()
+//        initService.tempUserData()
     }
 
     def insertCompanySetup(){

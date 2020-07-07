@@ -76,8 +76,24 @@
                 if(customerPostalAddressInstance?.postal_country_id){
                     contryId = customerPostalAddressInstance?.postal_country_id
                 }
+                def countryIds = new CoreParamsHelperTagLib().showCountryList("countryId","${contryId.toString()}")
                 %>
-                <%="${new CoreParamsHelperTagLib().showCountryList("postalCountryId","${contryId}")}"%>
+                <select class="styled sidebr01" name="postalCountryId" id="postalCountryId">
+                %{-- <option value="">- no select -</option>--}%
+                    <g:each in="${countryIds}" var="con">
+                        <g:if test="${countryIds.size() > 0}">
+                            <g:if test="${con.isExist}">
+                                <option selected value="${con.value}">${con.index}</option>
+                            </g:if>
+                            <g:else>
+                                <option value="${con.value}">${con.index}</option>
+                            </g:else>
+                        </g:if>
+                        <g:else>
+                            <option value="0">"No items.."</option>
+                        </g:else>
+                    </g:each>
+                </select>
             </div>
         </div>
 

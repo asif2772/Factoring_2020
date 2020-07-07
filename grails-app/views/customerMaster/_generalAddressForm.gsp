@@ -39,7 +39,7 @@
     <div class="singleContainer">
         <div id="tabPageLoadData2" class="InvoiceAmountTabl">
             <div class="spinLoader fieldContainer">
-                <img src="${resource(dir:'images',file:'spinner.gif')}" alt="${message(code:'spinner.alt.Loading',default:'Loading...')}" />
+                <asset:image src="spinner.gif" alt="${message(code:'spinner.alt.Loading',default:'Loading...')}" />
             </div>
         </div>
     </div>

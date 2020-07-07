@@ -206,7 +206,7 @@
                         <g:submitButton name="create" class="greenBtn tabFieldsetPosition" style="border-radius: 0 6px 6px 0" value="${message(code: 'default.button.update.label', default: 'Update')}"/>
                         %{--<g:link controller="reportCustomerSettlement" action="listOutstandingInvoices" params="[strSearch:customerMasterInstance?.customer_name]" class="orangeBtn" style="height: 27px;width: 150px;">${message(code: 'bv.dashboard.outstandingInvoices.label', default: 'Outstanding Invoices')}</g:link>--}%
                         <g:link controller="debtorCustomer" action="index" params="[strSearch:customerMasterInstance?.customer_name]" class="orangeBtn" style="height: 27px;width: 150px;">${message(code: 'bv.dashboard.debtorCustomer.label', default: 'Debtor Customer')}</g:link>
-                        <img id="newCusLoader" style="float: right;display: none;margin-top: 7px;margin-right: 10px;" src="${resource(dir:'images',file:'spinner.gif')}" alt="${message(code:'spinner.alt.Loading',default:'Loading...')}" />
+                        <asset:image id="newCusLoader" style="float: right;display: none;margin-top: 7px;margin-right: 10px;" src="spinner.gif" alt="${message(code:'spinner.alt.Loading',default:'Loading...')}" />
                         <% if (params.fInv) { %>
                             %{-- After customer created --}%
                             <% if (params.invEditId) {
@@ -235,7 +235,7 @@
 
                         <g:actionSubmit name="create" class="save updateBtn" style="width:auto" onclick="this.form.action='${createLink(action:'update')}';" value="${message(code: 'default.button.create.label', default: 'Create &')}"/>
                         %{--<g:actionSubmit class="save updateBtn" style="width:auto" onclick="this.form.action='${createLink(action:'updateAndCreateDebtor')}';" value="${message(code: 'default.button.updateAndCreateDebtor.label', default: 'Close')}" />--}%
-                        <asset:image id="newCusLoader" style="float: right;display: none;margin-top: 7px;margin-right: 10px;" src="${resource(dir:'images',file:'spinner.gif')}" alt="${message(code:'spinner.alt.Loading',default:'Loading...')}" />
+                        <asset:image id="newCusLoader" style="float: right;display: none;margin-top: 7px;margin-right: 10px;" src="spinner.gif" alt="${message(code:'spinner.alt.Loading',default:'Loading...')}" />
                         <% if (params.fInv) { %>
                             %{-- Direct came from invoice UI --}%
                             <% if (params.invEditId) { %>

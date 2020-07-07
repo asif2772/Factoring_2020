@@ -25,26 +25,26 @@ class CoreParamsHelperTagLib {
         String DataInstance = DataInstanceArr[0][0]
 
         def firstArr = DataInstance.split("::")
-        String valArr
         Integer indexPos
         String strIndex
         Integer varLength
-
         String strValue
-        String dropdown = "<select id='" + returnIndex + "' name='" + returnIndex + "'tabindex=\"7\">"
-        firstArr.each { phn ->
-            indexPos = phn.lastIndexOf('{');
-            strIndex = phn.substring(0, indexPos)
-            varLength = phn.length();
-            strValue = phn.substring(indexPos + 2, varLength - 2)
+        List list = new ArrayList()
+
+        for (int i = 0; i < firstArr.size(); i++) {
+            indexPos = firstArr[i].lastIndexOf('{');
+            strIndex = firstArr[i].substring(0, indexPos)
+            varLength = firstArr[i].length();
+            strValue = firstArr[i].substring(indexPos + 2, varLength - 2)
+            def inSelected = null
+
             if (strValue == selectionVal) {
-                dropdown += "<option value='" + strValue + "' selected='selected'>" + strIndex + "</option>"
-            } else {
-                dropdown += "<option value='" + strValue + "'>" + strIndex + "</option>"
+                inSelected = strValue
             }
+
+            list.add("value":strValue, "index": strIndex, "inSelected": inSelected)
         }
-        dropdown += "</select>"
-        return dropdown
+        return list
     }
 
     def showBudgetDetailsSelectionType(returnIndex, selectionVal) {
@@ -73,6 +73,7 @@ class CoreParamsHelperTagLib {
 
     def showBookingPeriod(returnIndex,selectIndex) {
 
+        List list = new ArrayList()
         Calendar now = Calendar.getInstance();
         def currentMonth = now.get(Calendar.MONTH) + 1
         def bookingPeriodArr = [
@@ -98,15 +99,14 @@ class CoreParamsHelperTagLib {
             selectIndex = selectIndex.toString()
         }
         for (int i = 0; i < bookingPeriodArr.size(); i++) {
+            def isSelected = null
             if (bookingPeriodArr[i][0]== selectIndex){
-                dropDown += "<option value='" + bookingPeriodArr[i][0] + "' selected='selected'>" + bookingPeriodArr[i][1] +  "</option>"
-            }else{
-                dropDown += "<option value='" + bookingPeriodArr[i][0] + "'>" + bookingPeriodArr[i][1] + "</option>"
+                isSelected = bookingPeriodArr[i][0]
             }
+            list.add("value":bookingPeriodArr[i][0],"index":bookingPeriodArr[i][1], "isSelected": isSelected)
         }
 
-        dropDown += "</select>"
-        return dropDown
+        return list
 
     }
 
@@ -162,6 +162,7 @@ class CoreParamsHelperTagLib {
     def getYesNoSelectionDropDown(returnIndex, selectionVal) {
 
         ArrayList mapStatuseArr = new ArrayList()
+        List list = new ArrayList()
         def g=new ValidationTagLib()
         mapStatuseArr = [
                 ['Yes', g.message(code: 'bv.comboOption.yes.label')],
@@ -171,15 +172,15 @@ class CoreParamsHelperTagLib {
         String dropDown = "<select  id='"+ returnIndex +"' name='" + returnIndex + "' >"
 
         for (int i = 0; i < mapStatuseArr.size(); i++) {
+            def isSelected = null
             if (mapStatuseArr[i][0].toString() == selectionVal) {
-                dropDown += "<option value='" + mapStatuseArr[i][0] + "' selected='selected'>" + mapStatuseArr[i][1] +  "</option>"
-            } else {
-                dropDown += "<option value='" + mapStatuseArr[i][0] + "'>" + mapStatuseArr[i][1] + "</option>"
+                isSelected = mapStatuseArr[i][0].toString()
             }
+
+            list.add("value":mapStatuseArr[i][0],"index": mapStatuseArr[i][1], "isSelected": isSelected)
         }
 
-        dropDown += "</select>"
-        return dropDown
+        return list
 
     }
 
@@ -210,6 +211,7 @@ class CoreParamsHelperTagLib {
 
     def StatusDropDown(returnIndex, selectionVal, isNull) {
         ArrayList mapStatuseArr = new ArrayList()
+        List list = new ArrayList()
         def g=new ValidationTagLib()
         mapStatuseArr = [
 //                ['0', 'Select Status'],
@@ -219,18 +221,17 @@ class CoreParamsHelperTagLib {
         String dropDown = "<select name='" + returnIndex + "' tabindex=\"2\">"
 
         for (int i = 0; i < mapStatuseArr.size(); i++) {
+
+            def isSelected = null
             String paramStatus = selectionVal + "";
-            //println("paramStatus "+paramStatus);
+
             if (mapStatuseArr[i][0].toString() == paramStatus) {
-                dropDown += "<option value='" + mapStatuseArr[i][0] + "' selected='selected'>" + mapStatuseArr[i][1] +  "</option>"
-            } else {
-                dropDown += "<option value='" + mapStatuseArr[i][0] + "'>" + mapStatuseArr[i][1] + "</option>"
+                isSelected = mapStatuseArr[i][1]
             }
+            list.add("value":mapStatuseArr[i][0],"index":mapStatuseArr[i][1], "isSelected": isSelected)
+
         }
-
-        dropDown += "</select>"
-        return dropDown
-
+        return list
     }
 
     def ShowStatus(selectionVal) {
@@ -258,21 +259,17 @@ class CoreParamsHelperTagLib {
 
     def showCountryList(returnIndex,selectCountryId) {
         def listArr = new BudgetViewDatabaseService().executeQuery("SELECT id,printablename FROM countries")
-        //println("Selected Val: "+selectValName)
-        //println("listArr Val: "+listArr)
-        String dropDown = "<select name='" + returnIndex + "' tabindex=\"7\">"
+        List list = new ArrayList()
         if (listArr.size()) {
             for (int i = 0; i < listArr.size(); i++) {
+                def isExist = null
                 if (listArr[i][0].toString() == selectCountryId) {
-                    //println("Index Val: " + Integer.parseInt(listArr[i][0].toString()))
-                    dropDown += "<option value='" + listArr[i][0] + "' selected='selected'>" + listArr[i][1] +  "</option>"
-                } else {
-                    dropDown += "<option value='" + listArr[i][0] + "'>" + listArr[i][1] + "</option>"
+                    isExist = selectCountryId
                 }
+                list.add("value":listArr[i][0], "index":listArr[i][1],"isExist":isExist)
             }
         }
-        dropDown += "</select>"
-        return dropDown
+        return list
     }
 
     def showCurrencyCode(selectCurrencyId) {
@@ -291,23 +288,24 @@ class CoreParamsHelperTagLib {
         * GSP usage: <%= "${new CoreParamsHelperTagLib().IntegerDropDown(1,30,1,0,'alertStartDays','Select Day(s) Start Alert')}" %>
         * */
         String dropDown = "<select id='" + returnIndex + "' name='" + returnIndex + "' tabindex=\"3\">"
+        List list = new ArrayList()
+
         if (isNullSelect) {
+            def isSelected = null
             if (selectionVal == 0) {
-                dropDown += "<option value='0' selected='selected'>" + isNullSelect + "</option>"
-            } else {
-                dropDown += "<option value='0'>" + isNullSelect + "</option>"
+                isSelected = 1
             }
+            list.add("value":'0', "index":isNullSelect,"isSelected":isSelected)
         }
         def i = 0
         for (i = startVal; i <= endVal; i = i + interVal) {
+            def isSelected = null
             if (i == selectionVal) {
-                dropDown += "<option value='" + i + "' selected='selected'>" + i + "</option>"
-            } else {
-                dropDown += "<option value='" + i + "'>" + i + "</option>"
+                isSelected = i
             }
+            list.add("value":i, "index":i,"isSelected":isSelected)
         }
-        dropDown += "</select>"
-        return dropDown
+        return list
     }
 
     def getDataFromTbl(domainName, tblName, valueFieldName, optionFieldName, returnIndex, selectValName, whereSting = '', isNullSelect = '') {
@@ -996,6 +994,7 @@ class CoreParamsHelperTagLib {
     def getExpanseBookPeriod(returnIndex, venID, selectIndex) {
         def fiscalID = 1
         venID = 1
+        List list = new ArrayList()
         def budgetItemList = new BudgetViewDatabaseService().executeQuery("SELECT b.id,b.bookingPeriodStartMonth,b.bookingPeriodStartYear,b.bookingPeriodEndMonth,b.bookingPeriodEndYear FROM BudgetItemExpense AS b WHERE b.vendorId=" + venID + " AND b.fiscalId=" + fiscalID + "AND b.status=1")
         //new CoreParamsHelperTagLib().getMonthDropDown('bookingPeriod','',0)
         def g=new ValidationTagLib()
@@ -1004,17 +1003,14 @@ class CoreParamsHelperTagLib {
 
             for (int i = 0; i < budgetItemList.size(); i++) {
 
+                def isSelected = null
                 if (budgetItemList[i][0] == selectIndex) {
-                    dropDown += "<option value='" + budgetItemList[i][0] + "' selected='selected'>" + monthNameShow(budgetItemList[i][1]) + " " + budgetItemList[i][2] + " - " + monthNameShow(budgetItemList[i][3]) + " " + budgetItemList[i][4] + "</option>"
-                } else {
-                    dropDown += "<option value='" + budgetItemList[i][0] + "'>" + monthNameShow(budgetItemList[i][1]) + " " + budgetItemList[i][2] + " - " + monthNameShow(budgetItemList[i][3]) + " " + budgetItemList[i][4] + "</option>"
+                    isSelected = budgetItemList[i][0]
                 }
+                list.add("value":  budgetItemList[i][0], "index": monthNameShow(budgetItemList[i][1]) + " " + budgetItemList[i][2] + " - " + monthNameShow(budgetItemList[i][3]) + " " + budgetItemList[i][4] + " (" + VatCatArr[i][2] + "%)","isSelected":isSelected)
             }
-        } else {
-            dropDown += "<option  value='0'>" + g.message(code: 'CoreParamsHelperTagLib.noBudgetItemSetup.label') + "</option>"
         }
-        dropDown += "</select>"
-        return dropDown
+        return list
 
     }
 
@@ -1102,6 +1098,7 @@ class CoreParamsHelperTagLib {
 
         def VatCatArr = new BudgetViewDatabaseService().executeQuery("SELECT id,categoryName,rate FROM VatCategory WHERE status=1")
 //        println(""+selectIndex)
+        List list = new ArrayList()
 
         String dropDown = "";
         dropDown = "<select id=\"vatRate\" onchange=\"calPriceByVAT(this.value);\" name=\"vatRate\">"
@@ -1109,20 +1106,17 @@ class CoreParamsHelperTagLib {
         //println("selectIndex "+selectIndex);
         if (VatCatArr.size()) {
             for (int i = 0; i < VatCatArr.size(); i++) {
+                def isSelected= null
                 String vatCatId = VatCatArr[i][0]
                 if ( vatCatId == selectIndex) {
 //                    println("selectIndex "+selectIndex + " VatCatArr "+VatCatArr[i][0]);
-                    dropDown += "<option value='" + VatCatArr[i][2] + "' selected='selected'>" + VatCatArr[i][1] + " (" + VatCatArr[i][2] + "%)" + "</option>"
-                } else {
-                    dropDown += "<option value='" + VatCatArr[i][2] + "'>" + VatCatArr[i][1] + " (" + VatCatArr[i][2] + "%)" + "</option>"
+                    isSelected = VatCatArr[i][2]
                 }
+                list.add("value": VatCatArr[i][2], "index": VatCatArr[i][1] + " (" + VatCatArr[i][2] + "%)","isSelected":isSelected)
             }
-        } else {
-            dropDown += "<option>" + g.message(code: 'CoreParamsHelperTagLib.noVatCategorySetup.label') + "</option>"
         }
 
-        dropDown += "</select>"
-        return dropDown
+        return list
     }
 
     def getVatCategoryExpenseWithAjax(returnIndex, selectIndex='0', contextCustomer="",forReceipt=false) {
@@ -1316,6 +1310,8 @@ class CoreParamsHelperTagLib {
         gridResultChartGroup = new BudgetViewDatabaseService().select(selectChartGroup, fromChartGroup, whereChartGroup, orderByChartGroup, '', 'true', selectIndexesChartGroup)
         def CatArr = gridResultChartGroup['dataGridList']
 
+        List list = new ArrayList()
+
         //String dropDown = "<select id=\"JournalChartId\" onchange=\"jQuery.ajax({type:'POST',data:'id=' + this.value, url:'/bv/JournalEntry/selectChartRelatedInformation',success:function(data,textStatus){jQuery('#searchresults').html(data);},error:function(XMLHttpRequest,textStatus,errorThrown){}});\" name=\"JournalChartId\">"
         String dropDown = "<select name='" + returnIndex + "'>"
         if (CatArr.size()) {
@@ -1337,18 +1333,16 @@ class CoreParamsHelperTagLib {
                     dropDown += "<optgroup label='" + CatArr[i][1] + "'>"
                     for (int j = 0; j < ProductArr.size(); j++) {
 
+                        def isSelected = null
                         if (ProductArr[j][1] == selectIndex) {
-                            dropDown += "<option value='" + ProductArr[j][1] + "' selected='selected'>" + ProductArr[j][1] + "  " + ProductArr[j][2] + "</option>"
-                        } else {
-                            dropDown += "<option value='" + ProductArr[j][1] + "' >" + ProductArr[j][1] + "  " + ProductArr[j][2] + "</option>"
+                            isSelected = ProductArr[j][1]
                         }
+                        list.add("value":  ProductArr[j][1], "index":ProductArr[j][1] + "  " + ProductArr[j][2],"isSelected":isSelected)
                     }
-                    dropDown += "</optgroup>"
                 }
             }
         }
-        dropDown += "</select>"
-        return dropDown
+        return list
     }
 
     def getSubJournalChartGroupDropDown(returnIndex, selectIndex = 0,bankAccountCategory) {
@@ -1444,6 +1438,7 @@ class CoreParamsHelperTagLib {
     def getDebtorCustomerGLDropDownForIncomeIvoice(returnIndex, selectIndex = 0) {
 
         String dropDown = "<select id='journalId' name='" + returnIndex + "'>"
+        List list = new ArrayList()
 
         ArrayList glCodeArr = new ArrayList()
         String strQuery = """SELECT cm.id,cm.account_code,cm.account_name FROM chart_master as cm
@@ -1454,17 +1449,16 @@ class CoreParamsHelperTagLib {
 
             for (int j = 0; j < glCodeArr.size(); j++) {
 
+                def isSelected = null
                 if (glCodeArr[j][1] == selectIndex) {
-                    dropDown += "<option value='" + glCodeArr[j][1] + "' selected='selected'>" + glCodeArr[j][1] + "  " + glCodeArr[j][2] + "</option>"
-                } else {
-                    dropDown += "<option value='" + glCodeArr[j][1] + "' >" + glCodeArr[j][1] + "  " + glCodeArr[j][2] + "</option>"
+                    isSelected = glCodeArr[j][1]
                 }
+
+                list.add("value": glCodeArr[j][1], "index": glCodeArr[j][1]+ "  "+glCodeArr[j][2],"isSelected":isSelected)
             }
-            dropDown += "</optgroup>"
         }
 
-        dropDown += "</select>"
-        return dropDown
+        return list
     }
     /***************** END ****************/
     def getBudgetChartGroupDropDown(returnIndex, selectIndex = 0) {
@@ -4309,6 +4303,7 @@ class CoreParamsHelperTagLib {
 
         def VendorArr = new BudgetViewDatabaseService().executeQuery("SELECT id,vendorName,vendorCode FROM VendorMaster where status=1 AND vendor_type = 'cn' ORDER BY vendorName ASC")
         def vendorPrefix = showGeneratedVendorCode()
+        List list = new ArrayList()
 
         def g = new ValidationTagLib()
 
@@ -4320,18 +4315,15 @@ class CoreParamsHelperTagLib {
             int tem = 0
             for (int i = 0; i < VendorArr.size(); i++) {
                 String venId = VendorArr[i][0] + "";
-//                println("venId "+venId + " selectIndex "+selectIndex);
 
+                def isSelected = null
                 if (selectIndex == venId) {
-                    dropDown += "<option value='" + VendorArr[i][0] + "' selected>" + VendorArr[i][1] + " [" + vendorPrefix + VendorArr[i][2] + "]</option>"
-                } else {
-                    dropDown += "<option value='" + VendorArr[i][0] + "' >" + VendorArr[i][1] + " [" + vendorPrefix + VendorArr[i][2] + "]</option>"
+                    isSelected =  VendorArr[i][1]
                 }
-
+                list.add("value":VendorArr[i][0],"index": VendorArr[i][1], "isSelected": isSelected)
             }
         }
-        dropDown += "</select>"
-        return dropDown
+        return list
     }
 
     def getCustomerIncomeInvoiceDropDown(returnIndex, selectIndex = '0', contextCustomer = "") {
@@ -4361,6 +4353,7 @@ class CoreParamsHelperTagLib {
         def customerArr = new BudgetViewDatabaseService().executeQuery("SELECT id,customerName,customerCode FROM CustomerMaster where status=1 AND customerType='cn' ORDER BY customerName ASC")
         def customerPrefix = showGeneratedCustomerCode()
         def g=new ValidationTagLib()
+        List list = new ArrayList()
 
         if(selectIndex != '0') {
             def customerNameList = new BudgetViewDatabaseService().executeQuery("SELECT customer_name FROM customer_master where status=1 AND customer_type='cn' AND id = '${selectIndex}'")
@@ -4374,18 +4367,15 @@ class CoreParamsHelperTagLib {
             int tem = 0
             for (int i = 0; i < customerArr.size(); i++) {
                 String cusId = customerArr[i][1] + "";
-//                println("cusId : "+cusId + " selectIndex : "+selectIndex);
+
+                def isSelected = null
                 if (customerName == cusId) {
-//                    println("selectIndex == cusId");
-                    dropDown += "<option value='" + customerArr[i][0] + "' selected>" + customerArr[i][1] + " [" + customerPrefix + customerArr[i][2] + "]</option>"
-                } else {
-                    dropDown += "<option value='" + customerArr[i][0] + "' >" + customerArr[i][1] + " [" + customerPrefix + customerArr[i][2] + "]</option>"
+                    isSelected =  customerArr[i][1]
                 }
+                list.add("value":customerArr[i][0],"index": customerArr[i][1], "isSelected": isSelected)
             }
         }
-
-        dropDown += "</select>"
-        return dropDown
+        return list
     }
 
 
@@ -7004,25 +6994,25 @@ def all_bankAccountStringAuto = "SELECT b.* FROM bank_statement_import_final AS 
         def customerArr = new BudgetViewDatabaseService().executeQuery(strQuery)
         def customerPrefix = showGeneratedVendorCode()
         def g = new ValidationTagLib()
-
         String dropDown = "<select id='"+returnIndex+"' required=\"\" name='"+returnIndex+"' onChange='selectVATDropDown();'>"
         dropDown += "<option value=\"\" selected>" + g.message(code:'bv.undoReconciliation.Select.label')+ "</option>"
+
+        List list = new ArrayList()
 
         if (customerArr.size()) {
             int tem = 0
             for (int i = 0; i < customerArr.size(); i++) {
+                def isSelected = null
                 String cusId = customerArr[i][0] + "";
-                if (selectIndex == cusId) {
-                    dropDown += "<option value='" + customerArr[i][0] + "' selected>" + customerArr[i][1] + " [" + customerPrefix + customerArr[i][2] + "]</option>"
-                } else {
-                    dropDown += "<option value='" + customerArr[i][0] + "' >" + customerArr[i][1] + " [" + customerPrefix + customerArr[i][2] + "]</option>"
-                }
 
+                if (selectIndex == cusId) {
+                    isSelected = customerArr[i][0]
+                }
+                list.add("value":customerArr[i][0], "index": customerArr[i][1] + " [" + customerPrefix + customerArr[i][2], "isSelected": isSelected)
             }
         }
 
-        dropDown += "</select>"
-        return dropDown
+        return list
     }
 
     def getCustomerListDropDownBox(returnIndex) {

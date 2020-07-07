@@ -1,11 +1,14 @@
 package factoring
 
+import constants.Process
 import grails.plugin.springsecurity.SpringSecurityService
 import groovy.sql.GroovyRowResult
 import groovy.sql.Sql
 
 import javax.sql.DataSource
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.logging.Logger
 import groovy.util.logging.Slf4j
 
@@ -16,6 +19,7 @@ class ExtraSettingService {
     DataSource dataSource
     BudgetViewDatabaseService budgetViewDatabaseService
     SpringSecurityService springSecurityService
+    Process pro
 
     public LinkedHashMap viewListOfCountry() {
 
@@ -615,7 +619,7 @@ class ExtraSettingService {
                 recenciliationCode: recenciliationCode,
                 userId            : springSecurityService.principal.id,
                 createDate        : new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()),
-                process           : com.bv.constants.Process.MANUAL_RECONCILIATION,
+                process           : process.MANUAL_RECONCILIATION,
                 bookingDate       : bookingDate,
                 customerId        : 0,
                 vendorId          : customerId
@@ -635,7 +639,7 @@ class ExtraSettingService {
                 recenciliationCode: recenciliationCode,
                 userId            : springSecurityService.principal.id,
                 createDate        : new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()),
-                process           : com.bv.constants.Process.MANUAL_RECONCILIATION,
+                process           : process.MANUAL_RECONCILIATION,
                 bookingDate       : bookingDate,
                 customerId        : 0,
                 vendorId          : customerId
@@ -679,6 +683,11 @@ class ExtraSettingService {
 
         def bookingDate = new ApplicationUtil().convertDateFromMonthAndYear(bookingPeriod, bookingYear)
 
+        LocalDate date = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String text = date.format(formatter);
+        LocalDate parsedDate = LocalDate.parse(text, formatter);
+
         Map trnMasBooked = [
                 accountCode       : recenciliationGL,
                 amount            : totalWriteOff * (-1),
@@ -689,8 +698,8 @@ class ExtraSettingService {
                 bookingYear       : bookingYear,
                 recenciliationCode: recenciliationCode,
                 userId            : springSecurityService.principal.id,
-                createDate        : new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()),
-                process           : com.bv.constants.Process.MANUAL_RECONCILIATION,
+                createDate        : parsedDate,
+                process           : Process.MANUAL_RECONCILIATION,
                 bookingDate       : bookingDate,
                 customerId        : debtorId,
                 vendorId          : 0
@@ -709,8 +718,8 @@ class ExtraSettingService {
                 bookingYear       : bookingYear,
                 recenciliationCode: recenciliationCode,
                 userId            : springSecurityService.principal.id,
-                createDate        : new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()),
-                process           : com.bv.constants.Process.MANUAL_RECONCILIATION,
+                createDate        : parsedDate,
+                process           : Process.MANUAL_RECONCILIATION,
                 bookingDate       : bookingDate,
                 customerId        : debtorId,
                 vendorId          : 0
@@ -760,7 +769,7 @@ class ExtraSettingService {
                 recenciliationCode: recenciliationCode,
                 userId            : springSecurityService.principal.id,
                 createDate        : new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()),
-                process           : com.bv.constants.Process.MANUAL_RECONCILIATION,
+                process           : process.MANUAL_RECONCILIATION,
                 bookingDate       : bookingDate,
                 customerId        : 0,
                 vendorId          : 0
@@ -780,7 +789,7 @@ class ExtraSettingService {
                 recenciliationCode: recenciliationCode,
                 userId            : springSecurityService.principal.id,
                 createDate        : new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()),
-                process           : com.bv.constants.Process.MANUAL_RECONCILIATION,
+                process           : process.MANUAL_RECONCILIATION,
                 bookingDate       : bookingDate,
                 customerId        : 0,
                 vendorId          : 0
@@ -832,7 +841,7 @@ class ExtraSettingService {
                 recenciliationCode: recenciliationCode,
                 userId            : springSecurityService.principal.id,
                 createDate        : new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()),
-                process           : com.bv.constants.Process.MANUAL_RECONCILIATION,
+                process           : process.MANUAL_RECONCILIATION,
                 bookingDate       : bookingDate,
                 customerId        : 0,
                 vendorId          : 0
@@ -852,7 +861,7 @@ class ExtraSettingService {
                 recenciliationCode: recenciliationCode,
                 userId            : springSecurityService.principal.id,
                 createDate        : new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()),
-                process           : com.bv.constants.Process.MANUAL_RECONCILIATION,
+                process           : process.MANUAL_RECONCILIATION,
                 bookingDate       : bookingDate,
                 customerId        : 0,
                 vendorId          : 0

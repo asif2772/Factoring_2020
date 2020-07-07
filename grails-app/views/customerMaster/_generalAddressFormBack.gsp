@@ -114,7 +114,26 @@
                     contryId = customerGeneralAddressInstance?.country_id
                 }
                 %>
-                <%= "${new CoreParamsHelperTagLib().showCountryList("countryId","${contryId.toString()}")}" %>
+                <%
+                    def countryIds = new CoreParamsHelperTagLib().showCountryList("countryId","${contryId.toString()}")
+                %>
+
+                <select class="styled sidebr01" name="countryId" id="countryId">
+                %{-- <option value="">- no select -</option>--}%
+                    <g:each in="${countryIds}" var="con">
+                        <g:if test="${countryIds.size() > 0}">
+                            <g:if test="${con.isExist}">
+                                <option selected value="${con.value}">${con.index}</option>
+                            </g:if>
+                            <g:else>
+                                <option value="${con.value}">${con.index}</option>
+                            </g:else>
+                        </g:if>
+                        <g:else>
+                            <option value="0">"No items.."</option>
+                        </g:else>
+                    </g:each>
+                </select>
             </div>
         </div>
 

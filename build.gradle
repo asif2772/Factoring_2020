@@ -76,6 +76,10 @@ dependencies {
     compile "org.hibernate:hibernate-ehcache:5.1.1.Final"
     compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.17'
     compile 'org.grails.plugins:cache:4.0.3'
+    compile 'org.apache.pdfbox:pdfbox:1.8.11'
+    compile 'org.apache.pdfbox:xmpbox:1.8.2'
+    compile 'org.grails.plugins:ajax-tags:1.0.0.RC1'
+
 }
 
 bootRun {
@@ -112,4 +116,10 @@ tasks.withType(Test) {
 assets {
     minifyJs = true
     minifyCss = true
+}
+
+grails {
+    agent {
+        enabled = false
+    }
 }
