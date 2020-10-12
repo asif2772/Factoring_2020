@@ -7021,16 +7021,16 @@ def all_bankAccountStringAuto = "SELECT b.* FROM bank_statement_import_final AS 
         def customerArr = new BudgetViewDatabaseService().executeQuery(strQuery)
         def customerPrefix = showGeneratedVendorCode()
         def g = new ValidationTagLib()
+        List list = new ArrayList()
         String dropDown = "<select id='"+returnIndex+"' required=\"\" name='"+returnIndex+"'>"
         dropDown += "<option value=\"\" selected>" + g.message(code:'bv.undoReconciliation.Select.label')+ "</option>"
         if (customerArr.size()) {
             for (int i = 0; i < customerArr.size(); i++) {
-                dropDown += "<option value='" + customerArr[i][0] + "' >" + customerArr[i][1] + " [" + customerPrefix + customerArr[i][2] + "]</option>"
+                list.add("value":customerArr[i][0], "index": customerArr[i][1] + " [" + customerPrefix + customerArr[i][2])
             }
         }
 
-        dropDown += "</select>"
-        return dropDown
+        return list
     }
 
     def getCustomerListDropDownFromSettlement(returnIndex, selectIndex = '0', contextPath = "") {

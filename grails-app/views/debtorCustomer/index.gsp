@@ -51,6 +51,19 @@
         changeReminderData(termsID);
     }
 
+    $(function() {
+        var isExistDate = '${debtorCustomerInstance?.acceptenceDate}';
+        var acceptanceDate;
+        if(isExistDate) {
+            acceptanceDate = $.datepicker.parseDate("dd/mm/yy", isExistDate);
+        } else {
+            acceptanceDate = new Date()
+        }
+
+        $('#acceptanceDate').datepicker();
+        $("#acceptanceDate").datepicker('setDate',acceptanceDate);
+    });
+
     } );
 
     function editData(editId){
@@ -140,9 +153,9 @@
 </g:javascript>
 
 <% if (params.id) { %>
-    <g:include view="debtorCustomer/edit.gsp"/>
+<g:include view="debtorCustomer/edit.gsp"/>
 <% } else { %>
-    <g:include view="debtorCustomer/create.gsp"/>
+<g:include view="debtorCustomer/create.gsp"/>
 <% } %>
 
 <div id="list-page-body-inner" class="content">

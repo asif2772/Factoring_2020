@@ -1,4 +1,4 @@
-<%@ page import="factoring.CoreParamsHelperTagLib" %>
+<%@ page import="java.time.LocalDateTime; java.time.format.DateTimeFormatter; java.time.LocalDate; factoring.CoreParamsHelperTagLib" %>
 %{--Start my code now--}%
 <%
     def contextPath = request.getServletContext().getContextPath()
@@ -106,11 +106,8 @@
                         <label for="acceptanceDate">
                             <g:message code="debtorCustomer.acceptanceDate.label" default="Acceptance Date" /><b>:</b>
                         </label>
-                        %{--<% if(debtorCustomerInstance?.acceptenceDate == "") { %>
-                            <bv:datePicker name="acceptanceDate" value="${new Date()}"/>
-                        <% }else { %>
-                            <bv:datePicker name="acceptanceDate" value="${debtorCustomerInstance?.acceptenceDate}"/>
-                        <% } %>--}%
+                        <input type="text" name="acceptanceDate" id="acceptanceDate">
+                    </div>
                     </div>
                 </div>
 

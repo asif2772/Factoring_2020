@@ -14,7 +14,6 @@
     <asset:stylesheet src="factoringApplicationMnf.css"/>
     <asset:stylesheet src="factoringThemeMnf.css"/>
     <asset:stylesheet src="bootstrap-modals.css"/>
-    <asset:javascript src="jquery.min.js"/>
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css">
     <asset:javascript src="jquery.min.js"/>
     <asset:javascript src="jquery-ui.min.js"/>

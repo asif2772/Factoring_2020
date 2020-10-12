@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired
 
 import java.text.DateFormat
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 
 @Transactional
@@ -59,7 +61,7 @@ class DebtorCustomerService {
             debtorCustomerInstance.adminCost = debtorCustomerInstanceTemp[8]
             debtorCustomerInstance.acceptanceFee = debtorCustomerInstanceTemp[9]
             debtorCustomerInstance.debtorTermsId = debtorCustomerInstanceTemp[10]
-            debtorCustomerInstance.acceptenceDate = debtorCustomerInstanceTemp[11]
+            debtorCustomerInstance.acceptenceDate =  new SimpleDateFormat("dd/MM/yyyy").format(debtorCustomerInstanceTemp[11])
             debtorCustomerInstance.firstReminder = debtorCustomerInstanceTemp[12]
             debtorCustomerInstance.secondReminder = debtorCustomerInstanceTemp[13]
             debtorCustomerInstance.thirdReminder = debtorCustomerInstanceTemp[14]
@@ -217,14 +219,13 @@ class DebtorCustomerService {
         return insertedId
     }
 
-    def updateAcceptDebtors(def params){
+    def updateAcceptDebtors(def params) {
 
         def user = springSecurityService.principal
         String userId = "" + user.id
 
-        DateFormat df = new SimpleDateFormat("dd-MM-yyyy")
-        Date tempTransDate = df.parse(params.acceptanceDate)
-        String acceptenceDate = tempTransDate.format("yyyy-MM-dd hh:mm:ss")
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy")
+        def acceptenceDate = df.parse(params.acceptanceDate)
 
         def debtorCustomerNo = params.debtorId + "#" + params.customerId
         Map mappedValue = [
@@ -236,12 +237,12 @@ class DebtorCustomerService {
                 outpayment            : "${params.outpayment}",
                 admin_cost            : "${params.adminCost}",
                 acceptence_fee        : "${params.acceptanceFee}",
-                acceptence_date       : "${acceptenceDate}",
+                acceptence_date       : new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(acceptenceDate),
                 payment_term_id       : "${params.debtorTermsId}",
                 first_reminder        : "${params.firstReminder}",
                 second_reminder       : "${params.secondReminder}",
                 third_reminder        : "${params.thirdReminder}",
-                final_reminder        : "${params.finalReminder}",
+                final_reminder        : "${para ms.finalReminder}",
                 create_user_id        : "${userId}",
                 update_user_id        : "${userId}",
                 create_date           : new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()),
@@ -252,6 +253,7 @@ class DebtorCustomerService {
         def updatedWhereSrting = "id=" + "'" + params.id + "'"
         budgetViewDatabaseService.update(mappedValue, tableName, updatedWhereSrting)
     }
+
 
     def checkDebtorCustomerCombination(def debtorId,def customerId){
         boolean bComExist = false
