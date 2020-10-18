@@ -4,7 +4,7 @@
     <%
         def journalChart = new CoreParamsHelperTagLib().getJournalChartGroupDropDown("JournalChartId",invoiceIncomeInstance?.salesAccountCode)
     %>
-
+%{--test--}%
     <select class="styled sidebr01" name="JournalChartId" id="JournalChartId">
     %{-- <option value="">- no select -</option>--}%
         <g:each in="${journalChart}" var="opt">
